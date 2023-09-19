@@ -5,9 +5,10 @@ using namespace std;
 void MultiplyPoly() {
     int DegreeA, DegreeB;
 
-    cout << "Enter the degree of the first polynomial\n";
+    cout << "Enter the degree of the first polynomial (Max 8)\n";
     cin >> DegreeA;
     CinCheck();
+    if (DegreeA > 8)DegreeA = 8; //Set it to max 8 (I set a max for it so you cant write something very high and have to restart)
     DegreeA++; //add one to acount for constant
 
     //make polynom array A
@@ -20,9 +21,10 @@ void MultiplyPoly() {
         CinCheck();
     }
 
-    cout << "Enter the degree of the second polynomial\n";
+    cout << "Enter the degree of the second polynomial (Max 8)\n";
     cin >> DegreeB;
     CinCheck();
+    if (DegreeB > 8)DegreeB = 8; //Set it to max 8
     DegreeB++;
 
     //make polynom array B
@@ -55,9 +57,10 @@ void MultiplyPoly() {
 void AddPoly() {
     int DegreeA, DegreeB;
 
-    cout << "Enter the degree of the first polynomial\n";
+    cout << "Enter the degree of the first polynomial (Max 8)\n";
     cin >> DegreeA;
     CinCheck();
+    if (DegreeA > 8)DegreeA = 8;
     DegreeA++;
 
     int* A = new int[DegreeA];
@@ -68,9 +71,10 @@ void AddPoly() {
         CinCheck();
     }
 
-    cout << "Enter the degree of the second polynomial\n";
+    cout << "Enter the degree of the second polynomial (Max 8)\n";
     cin >> DegreeB;
     CinCheck();
+    if (DegreeB > 8)DegreeB = 8;
     DegreeB++;
 
     int* B = new int[DegreeB];
@@ -102,9 +106,10 @@ void AddPoly() {
 void SubtractPoly() {
     int DegreeA, DegreeB;
 
-    cout << "Enter the degree of the first polynomial\n";
+    cout << "Enter the degree of the first polynomial (Max 8)\n";
     cin >> DegreeA;
     CinCheck();
+    if (DegreeA > 8)DegreeA = 8;
     DegreeA++;
 
     int* A = new int[DegreeA];
@@ -115,9 +120,10 @@ void SubtractPoly() {
         CinCheck();
     }
 
-    cout << "Enter the degree of the second polynomial\n";
+    cout << "Enter the degree of the second polynomial (Max 8)\n";
     cin >> DegreeB;
     CinCheck();
+    if (DegreeB > 8)DegreeB = 8;
     DegreeB++;
 
     int* B = new int[DegreeB];
