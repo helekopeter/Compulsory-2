@@ -2,156 +2,6 @@
 #include "Comp2.h"
 using namespace std;
 
-void MultiplyPoly() {
-    int DegreeA, DegreeB;
-
-    cout << "Enter the degree of the first polynomial (Max 8)\n";
-    cin >> DegreeA;
-    CinCheck();
-    if (DegreeA > 8)DegreeA = 8; //Set it to max 8 (I set a max for it so you cant write something very high and have to restart)
-    DegreeA++; //add one to acount for constant
-
-    //make polynom array A
-    int* A = new int[DegreeA];
-    cout << "Enter the coefficients of the first polynomial\n";
-    //define each coefficiant in polynom array A
-    for (int i = 0; i < DegreeA; i++)
-    {
-        cin >> A[i];
-        CinCheck();
-    }
-
-    cout << "Enter the degree of the second polynomial (Max 8)\n";
-    cin >> DegreeB;
-    CinCheck();
-    if (DegreeB > 8)DegreeB = 8; //Set it to max 8
-    DegreeB++;
-
-    //make polynom array B
-    int* B = new int[DegreeB];
-    cout << "Enter the coefficients of the second polynomial\n";
-    //define each coefficiant in polynom array B
-    for (int i = 0; i < DegreeB; i++)
-    {
-        cin >> B[i];
-        CinCheck();
-    }
-
-    cout << "First polynomial is ";
-    printPoly(A, DegreeA);
-    cout << "\n" << "Second polynomial is ";
-    printPoly(B, DegreeB);
-
-    //does the multiplication
-    int* prod = multiplyPolyArray(A, B, DegreeA, DegreeB);
-
-    cout << "\n" << "Product polynomial is ";
-    printPoly(prod, DegreeA + DegreeB - 1);
-
-    //delete the stuff we are done with
-    delete[] A;
-    delete[] B;
-    delete[] prod;
-}
-
-void AddPoly() {
-    int DegreeA, DegreeB;
-
-    cout << "Enter the degree of the first polynomial (Max 8)\n";
-    cin >> DegreeA;
-    CinCheck();
-    if (DegreeA > 8)DegreeA = 8;
-    DegreeA++;
-
-    int* A = new int[DegreeA];
-    cout << "Enter the coefficients of the first polynomial\n";
-    for (int i = 0; i < DegreeA; i++)
-    {
-        cin >> A[i];
-        CinCheck();
-    }
-
-    cout << "Enter the degree of the second polynomial (Max 8)\n";
-    cin >> DegreeB;
-    CinCheck();
-    if (DegreeB > 8)DegreeB = 8;
-    DegreeB++;
-
-    int* B = new int[DegreeB];
-    cout << "Enter the coefficients of the second polynomial\n";
-    for (int i = 0; i < DegreeB; i++)
-    {
-        cin >> B[i];
-        CinCheck();
-    }
-
-    cout << "First polynomial is ";
-    printPoly(A, DegreeA);
-    cout << endl << "Second polynomial is ";
-    printPoly(B, DegreeB);
-
-    //does the addition
-    int* sum = addPolyArray(A, B, DegreeA, DegreeB);
-
-    cout << endl << "If you add them it's ";
-    printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
-
-    //delete the stuff we are done with
-    delete[] A;
-    delete[] B;
-    //delete[] sum;    //This casued an error. Don't know why it works in "MultiplyPoly" and not here.
-                       //But i think it should be fine without.
-}
-
-void SubtractPoly() {
-    int DegreeA, DegreeB;
-
-    cout << "Enter the degree of the first polynomial (Max 8)\n";
-    cin >> DegreeA;
-    CinCheck();
-    if (DegreeA > 8)DegreeA = 8;
-    DegreeA++;
-
-    int* A = new int[DegreeA];
-    cout << "Enter the coefficients of the first polynomial\n";
-    for (int i = 0; i < DegreeA; i++)
-    {
-        cin >> A[i];
-        CinCheck();
-    }
-
-    cout << "Enter the degree of the second polynomial (Max 8)\n";
-    cin >> DegreeB;
-    CinCheck();
-    if (DegreeB > 8)DegreeB = 8;
-    DegreeB++;
-
-    int* B = new int[DegreeB];
-    cout << "Enter the coefficients of the second polynomial\n";
-    for (int i = 0; i < DegreeB; i++)
-    {
-        cin >> B[i];
-        CinCheck();
-    }
-
-    cout << "First polynomial is ";
-    printPoly(A, DegreeA);
-    cout << endl << "Second polynomial is ";
-    printPoly(B, DegreeB);
-
-    //does the subtraction
-    int* sum = subPolyArray(A, B, DegreeA, DegreeB);
-
-    cout << endl << "If you subtract them it's  ";
-    printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
-
-    //delete the stuff we are done with
-    delete[] A;
-    delete[] B;
-    //delete[] sum;    //This casued an error. Don't know why it works in "MultiplyPoly" and not here.
-                       //But i think it should be fine without.
-}
-
 void doSimpleMath() {
     char symbol;
     float num1, num2;
@@ -201,21 +51,86 @@ void doFactorial() {
 }
 
 void polySubmenu() {
-    cout << "\n1. Multiply two Polynomials\n";
+
+    //Menu for what to do with the polynomials
+
+    cout << "\n1. Multiply two polynomials\n";
     cout << "2. Add two polynomials\n";
     cout << "3. Subtract two polynomials\n";
     int Option;
     cin >> Option;
+
+    //Define the fist polynomial
+
+    int DegreeA, DegreeB;
+    
+    cout << "Enter the degree of the first polynomial (Max 8)\n";
+    cin >> DegreeA;
+    CinCheck();
+    if (DegreeA > 8)DegreeA = 8; //Set it to max 8 (I set a max for it so you cant write something very high and have to restart)
+    DegreeA++;                   //add one to acount for constant
+
+    int* A = new int[DegreeA];
+    cout << "Enter the coefficients of the first polynomial\n";
+    for (int i = 0; i < DegreeA; i++)
+    {
+        cin >> A[i];
+        CinCheck();
+    }
+
+    //Define the second polynomial
+
+    cout << "Enter the degree of the second polynomial (Max 8)\n";
+    cin >> DegreeB;
+    CinCheck();
+    if (DegreeB > 8)DegreeB = 8;
+    DegreeB++;
+
+    int* B = new int[DegreeB];
+    cout << "Enter the coefficients of the second polynomial\n";
+    for (int i = 0; i < DegreeB; i++)
+    {
+        cin >> B[i];
+        CinCheck();
+    }
+
+    //Print the polynomials
+
+    cout << "First polynomial is ";
+    printPoly(A, DegreeA);
+    cout << "\n" << "Second polynomial is ";
+    printPoly(B, DegreeB);
+
+    //Do and print the opperation
+
     switch (Option) {
-    case 1:
-        MultiplyPoly();
+    case 1:     //Multiply
+    {
+        int* prod = multiplyPolyArray(A, B, DegreeA, DegreeB);
+        cout << "\n" << "Product polynomial is ";
+        printPoly(prod, DegreeA + DegreeB - 1);
+        break; 
+    }
+    case 2:     //Add
+    {
+        int* sum = addPolyArray(A, B, DegreeA, DegreeB);
+        cout << endl << "If you add them it's ";
+        printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
         break;
-    case 2:
-        AddPoly();
+    }
+    case 3:     //subtract
+    {
+        int* sum = subPolyArray(A, B, DegreeA, DegreeB);
+
+        cout << endl << "If you subtract them it's  ";
+        printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
         break;
-    case 3:
-        SubtractPoly();
-        break;
+    }
+    //Delete stuff we are done with
+    delete[] A;
+    delete[] B;
+
+    return;
     }
 }
 
