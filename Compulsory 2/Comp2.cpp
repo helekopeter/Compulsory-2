@@ -89,7 +89,7 @@ void AddPoly() {
     //does the addition
     int* sum = addPolyArray(A, B, DegreeA, DegreeB);
 
-    cout << endl << "Product polynomial is ";
+    cout << endl << "If you add them it's ";
     printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
 
     //delete the stuff we are done with
@@ -136,7 +136,7 @@ void SubtractPoly() {
     //does the subtraction
     int* sum = subPolyArray(A, B, DegreeA, DegreeB);
 
-    cout << endl << "Product polynomial is ";
+    cout << endl << "If you subtract them it's  ";
     printPoly(sum, (DegreeA > DegreeB) ? DegreeA : DegreeB);
 
     //delete the stuff we are done with
