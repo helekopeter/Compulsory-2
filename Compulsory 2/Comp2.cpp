@@ -71,7 +71,7 @@ void polySubmenu() {
     DegreeA++;                   //add one to acount for constant
 
     int* A = new int[DegreeA];
-    cout << "Enter the coefficients of the first polynomial\n";
+    cout << "Enter the coefficients of the first polynomial (from constant to last degree)\n";
     for (int i = 0; i < DegreeA; i++)
     {
         cin >> A[i];
@@ -87,7 +87,7 @@ void polySubmenu() {
     DegreeB++;
 
     int* B = new int[DegreeB];
-    cout << "Enter the coefficients of the second polynomial\n";
+    cout << "Enter the coefficients of the second polynomial (from constant to last degree)\n";
     for (int i = 0; i < DegreeB; i++)
     {
         cin >> B[i];
